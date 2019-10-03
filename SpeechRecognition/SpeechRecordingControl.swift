@@ -49,7 +49,7 @@ class SpeechRecordingControl: UIControl {
             return
         }
         
-        let controlEvent: UIControlEvents = bounds.contains(touch.location(in: self)) ? .touchUpInside : .touchUpOutside
+        let controlEvent: UIControl.Event = bounds.contains(touch.location(in: self)) ? .touchUpInside : .touchUpOutside
         isRecording(false, animated: true)
         sendActions(for: controlEvent)
     }
@@ -141,7 +141,7 @@ fileprivate class CircleView: UIView {
             transformAnimation.toValue = 1.2
             transformAnimation.repeatCount = .infinity
             transformAnimation.autoreverses = true
-            transformAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            transformAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
             let opacityAnimation = CABasicAnimation(keyPath: "opacity")
             opacityAnimation.duration = transformAnimation.duration
             opacityAnimation.fromValue = 0.7
